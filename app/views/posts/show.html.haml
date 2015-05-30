@@ -3,8 +3,8 @@
   %p.username
     Shared by
     = @post.user.name
-    about
     = time_ago_in_words(@post.created_at)
+    ago
   .clearfix
     .post_image_description
       = image_tag @post.image.url(:medium)
