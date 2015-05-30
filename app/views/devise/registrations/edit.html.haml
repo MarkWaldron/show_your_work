@@ -1,38 +1,39 @@
-.border-form-div
-  %h2
-  Edit
-  = resource_name.to_s.humanize
+#devise
+  .border-form-div
+    %h2
+    Edit
+    = resource_name.to_s.humanize
 
-  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-    = f.error_notification
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = f.error_notification
 
-    .form-inputs
-      Name
-      %br/
-      = f.input :name, required: true, autofocus: true, label: false
-      %br/
-      Email
-      %br/
-      = f.email_field :email, required: true
-      %br/
-      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-        %p Currently waiting confirmation for:
-        = resource.unconfirmed_email
-      %br/
-      Password
-      %br/
-      = f.password_field :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false
-      %br/
-      Password Confirmation
-      %br/
-      = f.password_field :password_confirmation, required: false
-      %br/
-      Current Password
-      %br/
-      = f.password_field :current_password, hint: "we need your current password to confirm your changes", required: true
+      .form-inputs
+        Name
+        %br/
+        = f.input :name, required: true, autofocus: true, label: false
+        %br/
+        Email
+        %br/
+        = f.email_field :email, required: true
+        %br/
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          %p Currently waiting confirmation for:
+          = resource.unconfirmed_email
+        %br/
+        Password
+        %br/
+        = f.password_field :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false
+        %br/
+        Password Confirmation
+        %br/
+        = f.password_field :password_confirmation, required: false
+        %br/
+        Current Password
+        %br/
+        = f.password_field :current_password, hint: "we need your current password to confirm your changes", required: true
 
-    .form-actions
-      = f.button :submit, "Update"
+      .form-actions
+        = f.button :submit, "Update"
 
-  %p Unhappy?
-  = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "data"
+    %p Unhappy?
+    = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "data"
